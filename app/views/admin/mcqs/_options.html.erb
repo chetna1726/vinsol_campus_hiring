@@ -1,0 +1,11 @@
+<% build_options(@question) %>
+<%= f.fields_for :options do |ff| %>
+  <%= render_option_field_partial(@question.type, ff) %>
+<% end %>
+<tr>
+  <td>
+    <%= add_fields "Add option", f, :options, @question.type.downcase %>
+  </td>
+  <td>
+  </td>
+</tr>

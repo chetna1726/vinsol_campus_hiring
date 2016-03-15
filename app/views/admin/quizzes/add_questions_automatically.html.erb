@@ -1,0 +1,29 @@
+<div id='questions_container' data-remove_question="<%= remove_question_admin_quiz_url(@quiz) %>">
+  <div class='quiz-heading'>
+    <div>
+      <h3>Specify Your Selection</h3>
+    </div>
+    <div id='right'>
+      <h5>
+        Maximun Questions Allowed = <%= @quiz.number_of_questions %>
+      </h5>
+    </div>
+  </div>
+  <div id='alert' style='display:none'>
+  </div>
+  <div>
+    <%= select_tag('Category', options_from_collection_for_select(root_categories, :id, :name), prompt: 'Category', data: { subcategories: sub_categories }, id: 'parent', class: 'filters' ) %>
+    <%= select_tag('Sub Category', '', prompt: 'Sub Category', id: 'category', class: 'filters' ) %>
+    <%= select_tag('Difficulty', options_from_collection_for_select(difficulty_levels, :id, :name), prompt: 'Difficulty', id: 'difficulty_level', class: 'filters') %>
+    <%= select_tag('Question Type', options_for_select(Question::TYPES), prompt: 'Question Type', id: 'type', class: 'filters') %>
+    <input type='number' placeholder='Number of Questions' class='filters' id='num_ques'>
+  </div>
+  <div>
+    <%= link_to 'Add Questions', 'javascript:;', id: 'add_questions', data: { href: add_questions_automatically_admin_quiz_url(@quiz) }, class: 'btn' %>
+    <%= link_to 'Clear All', 'javascript:;', id: 'clear_all', class: 'btn' %>
+  </div> 
+  <div id='questions'>
+    <%= render 'random_questions' %>
+  </div>
+  <%= link_to 'Done', admin_quiz_path(@quiz) %>
+</div>

@@ -1,0 +1,6 @@
+<% shuffled_options(shuffle_options_flag, question).each do |option| %>
+  <div class='mcq-options'>
+    <input type='radio' name='answer' value="<%= option.id %>" id="answer_<%= option.id %>">
+    <label for="answer_<%= option.id %>"><%= raw(option.value) %></label>
+  </div>
+<% end %>

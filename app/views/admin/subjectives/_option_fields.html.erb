@@ -1,0 +1,12 @@
+<tr class='fields'>
+  <td>
+    <%= f.label :value , 'Answer', class: 'inline-element' %><span class='required-field'>*</span>
+  </td>
+  <td>
+    <%= f.text_field :value, class: 'options' %>
+    <%= f.hidden_field :answer, value: true %>
+    <br>
+    <%= f.hidden_field(:_destroy) %>
+    <%= link_to_remove "remove" %>
+  </td>
+</tr>

@@ -1,0 +1,11 @@
+<div id='quiz-details'>
+  <div id='credentials'>
+    <p>Total time: <%= @quiz.duration_in_minutes %> minutes</p>
+    <p>Total marks: <%= @quiz.marks %></p>
+    <p>Negative Marking: <%= @quiz.negative_marking %>%</p>
+  </div>
+  <div id='instructions'>
+    <pre><%= @quiz.instructions %></pre> 
+  </div>
+</div>
+<%= button_to 'Start Quiz', show_questions_path(@quiz.code), method: :get, id: 'start_quiz' %>

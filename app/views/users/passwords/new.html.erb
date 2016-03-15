@@ -1,0 +1,17 @@
+  <h4>Forgot your password?</h4>
+
+  <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+    <%= devise_error_messages! %>
+
+  <div class='user-ui'>
+    <div class='attributes'>
+      <div class='labels'>
+        <%= f.label :email %>
+      </div>
+      <div class='input-elements'>
+        <%= f.email_field :email, :autofocus => true %>
+      </div>
+    </div>
+    <%= f.submit "Send me reset password instructions" %>
+  <% end %>
+</div>

@@ -1,0 +1,20 @@
+<div id='quizzes-main-container'>
+  <div class="page-header">
+    <h1>QUIZZES</h1>
+  </div>
+  <%= link_to 'New', new_admin_quiz_path, class: 'btn btn-primary pull-right' %>
+  <ul class="nav nav-tabs quiz-tabs" data-href="<%= manage_quizzes_path %>">
+    <li class="active">
+      <a data-attemptable=1 data-expired=0>Attemptable</a>
+    </li>
+    <li>
+      <a data-attemptable=0>Unattemptable</a>
+    </li>
+    <li>
+      <a data-expired=1 data-attemptable=1>Expired</a>
+    </li>
+  </ul>
+  <div id='quizzes-container'>
+    <%= render 'quizzes' %>
+  </div>
+</div>

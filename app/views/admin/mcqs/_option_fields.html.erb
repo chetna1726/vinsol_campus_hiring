@@ -1,0 +1,14 @@
+<tr class='fields'>
+  <td>
+    <%= f.label :value , "Option", class: 'inline-element'%><span class='required-field'>*</span>
+  </td>
+  <td>
+    <%= f.cktext_area :value, class:'options' %>
+    <br>
+    <%= f.check_box :answer, class: 'inline-element answers' %>
+    <%= f.label :answer, 'Correct Answer', class: 'inline-element' %>
+    <br>
+    <%= f.hidden_field(:_destroy) %>
+    <%= link_to_remove "remove" %>
+  </td>
+</tr>

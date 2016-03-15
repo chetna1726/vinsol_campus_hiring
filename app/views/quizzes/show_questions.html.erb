@@ -1,0 +1,7 @@
+<div id='question_container', data-code="<%= @quiz.code %>">
+  <div id='timer' data-href="<%= update_timer_path %>" data-polling_time="<%= QUIZ[:update_timer_interval] %>">
+  </div>
+  <div class='question-box'>
+    <%= render partial: 'question', locals: { question: @current_question }  %>
+  </div>
+</div>

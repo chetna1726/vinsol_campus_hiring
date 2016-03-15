@@ -1,0 +1,48 @@
+<div class="page-header">
+  <h1>Questions
+  </h1>
+</div>
+<% if @questions.empty? %>
+  <%= link_to "New", '#new_question', { data: { toggle: "modal", target: '#new_question' }, class: 'btn btn-primary pull-right', id: "new_ques_btn" } %>
+  <p>No Questions available</p>
+<% else %>
+  <div id='container'>
+    <div>
+      <%= form_tag admin_questions_path, :method => :get do %>
+        <%= text_field_tag :search, params[:search] %>
+        <br>
+        <%= submit_tag "Search" %>
+        <br>
+        <span class='hint'>
+          Use star(*) for partial word search. e.g apti* for aptitude
+        </span>
+      <% end %>
+    </div>
+    <div class='right-container'>
+      <div class='new-btn-container'>
+        <%= link_to "New", '', { data: { toggle: "modal", target: '#new_question' }, class: 'btn btn-primary', id: "new_ques_btn" } %>
+      </div>
+      <div class='pagination-container'>
+        <%= paginate @questions %>
+      </div>
+    </div>
+  </div>
+  <div class='pagination-header'>
+    <%= pagination_header(@questions) %>
+  </div>
+  <% @questions.each do |question| %>
+    <%= render partial: 'show', locals: { question: question } %>
+  <% end %>
+  <div class='pagination-container'>
+    <%= paginate @questions %>
+  </div>
+<% end %>
+<div class="modal fade in" id="new_question">
+<div class="modal-header">
+  <button class="close" data-dismiss="modal">x</button>
+  <h4>Choose the type of question</h4>
+</div>
+<div class="modal-body">
+  <%= render 'new_question' %>
+</div>
+</div>

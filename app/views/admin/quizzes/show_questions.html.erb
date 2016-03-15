@@ -1,0 +1,32 @@
+<div id='questions_container', data-questions="<%= @quiz.number_of_questions %>">
+  <div class="page-header">
+    <h1>Questions</h1>
+  </div>
+  <% if @quiz.questions.empty? %>
+    <p>No questions added yet</p>
+  <% else %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Content</th>
+          <th>Category</th>
+          <th>Type</th>
+          <th>Points</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @quiz.questions.each do |question| %>
+        <tr>
+          <td><%= strip_tags(question.content).truncate(QUESTION[:content_truncation_length]) %></td>
+          <td><%= question.category_name %></td>
+          <td><%= question.type %></td>
+          <td><%= question.points %></td>
+          <td><%= link_to 'Show', admin_question_path(question), class: 'btn btn-mini' %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <%= link_to 'Back', admin_quiz_path(@quiz) %>
+</div>

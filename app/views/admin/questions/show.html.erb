@@ -1,0 +1,66 @@
+<div>
+  <h1><%= @question.type.upcase %> QUESTION</h1>
+  <table class='table table-striped'>
+    <tbody>
+      <tr>
+        <td>
+          Content
+        </td>
+        <td>
+          <%= raw(@question.content) %>
+        </td>
+      </tr>
+        <% if @question.image_file_name %>
+          <tr>
+            <td>
+              Image
+            </td>
+            <td>
+              <%= image_tag @question.image.url(:medium) %>
+            </td>
+          </tr>
+        <% end %>
+      <%= render_partial_show(@question.type) %>
+      <tr>
+        <td>
+          Category
+        </td>
+        <td>
+          <%= @question.category_parent_name %> -> <%= @question.category_name %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Points
+        </td>
+        <td>
+          <%= @question.points %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Difficulty Level
+        </td>
+        <td>
+          <%= @question.difficulty_level_name %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Status
+        </td>
+        <td>
+          <%= @question.status %>
+        </td>
+      </tr>
+      <tr>
+        <td>Created By
+        </td>
+        <td>
+        <%= @question.try(:admin_name) || @question.try(:admin_email) %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <%= link_to 'Not Looking Nice?', edit_admin_question_path(@question) %>
+</div>

@@ -1,0 +1,81 @@
+/*
+  =require twitter-bootstrap-static/bootstrap
+
+  Use Font Awesome icons (default)
+  To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
+  =require twitter-bootstrap-static/fontawesome
+  */
+
+.container-fluid {
+  padding: 0;
+}
+
+.container-fluid footer {
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 1%;
+  font-size: 2em;
+  text-align: center;
+}
+
+.container-fluid .span9 {
+  padding: 1%;
+}
+
+.navbar-inner {
+  background-image: none !important; 
+  background-color: black !important;
+}
+
+.navbar * {
+  text-shadow: none !important;
+  color: white !important;
+}
+
+.row-fluid .content {
+  text-align: center;
+}
+
+.panel {
+  font-size: 100%;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.panel-body {
+  padding: 10px 10px;
+}
+
+.list-group {
+  margin: 0;
+}
+
+.list-group-item:first-child {
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+}
+
+.nav-collapse .nav>li>a:hover, .nav-collapse .dropdown-menu a:hover {
+  color: black !important;
+  background-color: grey !important;
+}
+
+.nav-tabs>li {
+  margin-bottom: -2px;
+}
+
+input[type="file"] {
+  line-height: 0px !important;
+}

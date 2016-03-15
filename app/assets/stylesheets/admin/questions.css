@@ -1,0 +1,49 @@
+.list {
+  list-style-type: none;
+}
+
+.hidden_element {
+  display: none;
+}
+
+table td * {
+  vertical-align: middle !important;
+}
+
+textarea.options {
+  width: 50%;
+  margin-right: 0;
+}
+
+.questions {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.question-label {
+  vertical-align: top;
+}
+
+.new-btn-container {
+  text-align: right;
+}
+
+.index-question-container {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.hint {
+  color: blue;
+}
+
+#container > div {
+  display: inline-block;
+  width: 48%;
+  vertical-align: top;
+}
+
+.right-container > div {
+  display: block;
+  width: 100%;
+}

@@ -1,0 +1,18 @@
+<div id='questions_container', data-num_questions="<%= @number_of_questions %>", data-update_questions="<%= update_questions_admin_quiz_path(@quiz) %>" data-sort_questions="<%= choose_questions_admin_quiz_path(@quiz) %>">
+  <div id='alert' style='display:none'></div>
+  <%= select_tag('Category', options_from_collection_for_select(root_categories, :id, :name), prompt: 'Category', data: { subcategories: sub_categories }, id: 'parent', class: 'filters' ) %>
+  <%= select_tag('Sub Category', options_for_select([]), prompt: 'Sub Category', id: 'category', class: 'filters' ) %>
+  <%= select_tag('Difficulty', options_from_collection_for_select(difficulty_levels, :id, :name), prompt: 'Difficulty', id: 'difficulty_level', class: 'filters') %>
+  <%= select_tag('Question Type', options_for_select(@question_types), prompt: 'Question Type', id: 'type', class: 'filters') %>
+  <br>
+  <%= link_to 'Filter Questions', 'javascript:;', id: 'sort_questions', class: 'btn' %>
+  <%= link_to 'Clear Filters', 'javascript:;', id: 'clear_filters', class: 'btn' %>
+  <div class="page-header">
+    <h1>Choose Questions</h1>
+  </div>
+  <div class='quiz-info'>Maximum Questions: <%= @quiz.number_of_questions %></div>
+  <div id='table'>
+    <%= render 'questions' %>
+  </div>
+  <%= link_to 'Done', show_questions_admin_quiz_path(@quiz) %>
+</div>

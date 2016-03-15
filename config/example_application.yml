@@ -1,0 +1,3 @@
+OAUTH_CLIENT_ID: "<client-id>"
+OAUTH_CLIENT_SECRET: "<client-secret>"
+APPLICATION_CONFIG_SECRET_TOKEN: '<a long secret>'

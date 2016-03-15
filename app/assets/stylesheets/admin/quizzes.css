@@ -1,0 +1,32 @@
+.date-time {
+  width: 15%;
+}
+
+.instructions {
+  width: 100%;
+}
+
+.filters {
+  width: 19%;
+}
+
+.quiz-heading div {
+  display: inline-block;
+  width: 48%;
+}
+
+#right {
+  text-align: right;
+  color: red;
+}
+
+.quiz-info {
+  font-family: "Lucida",sans-serif;
+  font-size: 1.2em;
+  color: blue;
+  font-weight: bold;
+}
+
+#questions_count {
+  color: red;
+}

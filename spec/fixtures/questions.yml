@@ -1,0 +1,22 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+q1:
+  content: 'a=1, b=2 then a+b=?'
+  category: quant
+  points: 2
+  difficulty_level: easy
+  status: active
+  type: 'MCQ'
+  quizzes: test1
+q2:
+  content: 'akjcksc'
+  category: c
+  points: 1
+  difficulty_level: medium
+  status: archived
+  type: 'Subjective'
+  quizzes: test1

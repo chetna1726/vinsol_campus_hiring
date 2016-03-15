@@ -1,0 +1,60 @@
+.question-header {
+  border-bottom: 1px solid #dddddd;
+  padding: 10px;
+  color: #6B4F2E;
+  background: pink;
+}
+
+.mcq-options {
+  border: 1px solid #dddddd;
+}
+
+.mcq-options input {
+  display: inline-block;
+  width: 10%;
+  padding: 2%;
+}
+
+.mcq-options label {
+  display: inline-block;
+  width: 80%;
+  border-left: 2px solid #dddddd;
+  padding: 2%;
+  margin-bottom: 0;
+}
+
+.subjective-answer {
+  width: 96%;
+  padding: 2%;
+}
+
+.subjective-answer * {
+  display: inline-block;
+  padding: 2%;
+}
+
+.subjective-answer label {
+  width: 15%;
+}
+
+.subjective-answer input {
+  width: 30%;
+}
+
+#next_question, #finish_quiz {
+  font-size: 100%;
+  width: 15%;
+  display: block;
+  margin-top: 2%;
+}
+
+#timer {
+  font-weight: bold;
+  width: 96%;
+  text-align: right;
+  padding: 2%;
+}
+
+.timer-box {
+  text-align: center;
+}

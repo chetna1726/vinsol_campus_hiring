@@ -1,0 +1,22 @@
+<h1><%= controller.action_name.upcase %> ADMIN</h1>
+<%= (render partial: '/errors', locals: { object: @admin }) if @admin.errors.any? %><br>
+<%= form_for @admin do |f| %>
+  <div class='attributes'>
+    <div class='labels'>
+      <%= f.label :email, class: 'inline-element' %><span class='required-field'>*</span>
+    </div>
+    <div class='input-elements'>
+      <%= f.email_field :email, required: true, autofocus: true, class: 'inline-element' %>
+    </div>
+  </div>
+  <div class='attributes'>
+    <div class='labels'>
+      <%= f.label :name, class: 'inline-element' %>
+    </div>
+    <div class='input-elements'>
+      <%= f.text_field :name, class: 'inline-element' %>
+    </div>
+  </div>
+  <%= f.submit %>
+<% end %>
+<%= link_to 'Back', admins_path %>

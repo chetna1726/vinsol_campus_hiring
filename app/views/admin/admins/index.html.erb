@@ -1,0 +1,28 @@
+<%= link_to 'Add Admin', new_admin_path, class: 'btn btn-primary pull-right' %>
+<div>
+  <% if @admins.empty? %>
+    <h4>No Admins</h4>
+  <% else %>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Name</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+          <% @admins.each do |admin| %>
+          <tr>
+            <td><%= admin.email %></td>
+            <td><%= admin.name %></td>
+            <td>
+              <%= link_to 'Edit', edit_admin_path(admin), class: 'btn btn-mini' %>
+              <%= link_to 'Delete', admin_path(admin), method: :delete, class: 'btn btn-mini' %>
+            </td>
+          </tr>
+          <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

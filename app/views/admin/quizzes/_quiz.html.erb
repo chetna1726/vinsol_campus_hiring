@@ -1,0 +1,96 @@
+<div>
+  <h1><%= controller.action_name.upcase %> QUIZ</h1>
+  <%= form_for [:admin, @quiz], as: :quiz do |f| %>
+    <%= (render partial: '/errors', locals: { object: @quiz }) if @quiz.errors.any? %>
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <td>
+            <%= f.label :name, class: 'inline-element' %><span class='required-field'>*</span>
+          </td>
+          <td>
+            <%= f.text_field :name, required: true, autofocus: true %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= f.label :start_date_time, class: 'inline-element'%><span class='required-field'>*</span>
+          </td>
+          <td>
+            <div class="input-append date datetimepicker">
+              <%= f.text_field :start_date_time, { data: { format: "dd/MM/yyyy hh:mm:ss" }, class: 'inline-element', required: 'true', value: @quiz.start_date_time } %>
+              <span class="add-on">
+                <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                </i>
+              </span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= f.label :end_date_time, class: 'inline-element' %><span class='required-field'>*</span>
+          </td>
+          <td>
+            <div class="input-append date datetimepicker">
+              <%= f.text_field :end_date_time, { data: { format: "dd/MM/yyyy hh:mm:ss" }, class: 'inline-element', required: true, value: @quiz.end_date_time } %>
+              <span class="add-on">
+                <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                </i>
+              </span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= f.label :duration_in_minutes, 'Duration(in minutes)', class: 'inline-element' %><span class='required-field'>*</span>
+          </td>
+          <td>
+            <%= f.number_field :duration_in_minutes, required: true, class: 'number inline-element' %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= f.label :number_of_questions, class: 'inline-element'%><span class='required-field'>*</span>
+          </td>
+          <td>
+            <%= f.number_field :number_of_questions, class: 'number', required: true, min: 0 %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= f.label :negative_marking %>
+          </td>
+          <td>
+            <%= f.number_field :negative_marking, class: 'number', min: 0, max: 100, step: 0.1 %>%
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= f.label :shuffle_questions %>
+          </td>
+          <td>
+            <%= f.check_box :shuffle_questions %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= f.label :shuffle_options %>
+          </td>
+          <td>
+            <%= f.check_box :shuffle_options %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= f.label :instructions %>
+          </td>
+          <td>
+            <%= f.text_area :instructions, rows: 10, class: 'instructions' %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <%= f.submit %>
+  <% end %>
+  <%= link_to "Back", manage_quizzes_path %>
+</div>

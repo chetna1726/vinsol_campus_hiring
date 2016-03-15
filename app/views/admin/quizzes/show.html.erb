@@ -1,0 +1,109 @@
+<div>
+  <h1>
+    <%= @quiz.name %>
+  </h1>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>
+          Attemptable
+        </td>
+        <td>
+          <%= @quiz.attemptable  %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Passcode
+        </td>
+        <td>
+          <%= @quiz.passcode %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Quiz Url
+        </td>
+        <td>
+          <%= link_to quiz_url(@quiz.code), quiz_url(@quiz.code) %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Start Date and time
+        </td>
+        <td>
+          <%= @quiz.start_date_time.to_s(:quiz_date) %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          End Date and time
+        </td>
+        <td>
+          <%= @quiz.end_date_time.to_s(:quiz_date) %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Duration(in minutes)
+        </td>
+        <td>
+          <%= @quiz.duration_in_minutes %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Number of questions
+        </td>
+        <td>
+          <%= @quiz.number_of_questions %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Negative marking
+        </td>
+        <td>
+          <%= @quiz.negative_marking %>%
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Shuffle Questions
+        </td>
+        <td>
+          <%= @quiz.shuffle_questions %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Shuffle Options
+        </td>
+        <td>
+          <%= @quiz.shuffle_options %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Instructions
+        </td>
+        <td>
+          <pre><%= @quiz.instructions %></pre>
+        </td>
+      </tr>
+      <tr>
+        <td>Created By
+        </td>
+        <td>
+        <%= @quiz.try(:admin_name) || @quiz.try(:admin_email) %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <%= link_to 'Add Questions Automatically', add_questions_automatically_admin_quiz_path(@quiz), class: 'btn btn-primary' %>
+  <%= link_to 'Add/Remove Questions Manually', choose_questions_admin_quiz_path(@quiz), class: 'btn btn-primary' %>
+  <%= link_to 'Show Questions', show_questions_admin_quiz_path(@quiz), class: 'btn btn-primary' %>
+  <%= link_to 'Edit Quiz', edit_admin_quiz_path(@quiz), class: 'btn btn-primary' %>
+  <%= link_to 'Back', admin_quizzes_path, class: 'btn btn-primary' %>
+</div>

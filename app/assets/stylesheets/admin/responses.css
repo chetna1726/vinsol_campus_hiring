@@ -1,0 +1,9 @@
+tr.highlight {
+  background-color: #FF4D4D;
+  color: white !important;
+  font-weight: bold;
+}
+
+tr.highlight a {
+  color: white;
+}

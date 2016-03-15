@@ -1,0 +1,5 @@
+<%= form_tag validate_passcode_path(@quiz.code) do %>
+<%= label_tag 'quiz_passcode', 'Enter Quiz passcode' %>
+<%= text_field 'quiz', 'passcode', value: '', required: true, autofocus: true %><br>
+<%= submit_tag 'Validate passcode' %>
+<% end %>

@@ -1,0 +1,45 @@
+<div class="page-header">
+  <h1>Questions</h1>
+</div>
+ <%= link_to "New", '', { data: { toggle: "modal", target: '#new_question' }, class: 'btn btn-primary pull-right', id: "new_ques_btn" } %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Category</th>
+      <th>Type</th>
+      <th>Points</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @questions.each do |question| %>
+    <tr>
+      <td><%= strip_tags(question.content).truncate(QUESTION[:content_truncation_length]) %></td>
+      <td><%= question.category_name %></td>
+      <td><%= question.type %></td>
+      <td><%= question.points %></td>
+      <td>
+        <%= link_to('edit', edit_admin_question_path(question), class: 'btn btn-mini' ) %>
+        <%= link_to('delete', admin_question_path(question), method: 'delete', class: 'btn btn-mini' ) %>
+        <%= link_to('show', admin_question_path(question), class: 'btn btn-mini' ) %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class='pagination-container'>
+  <% #FIXME_AB: Check that @questions is not blank. Else there would be an exception here  -%>
+  <% #Fixed %>
+  <%= (paginate @questions) unless @questions.empty? %>
+</div>
+
+ <div class="modal hide fade in" id="new_question">
+  <div class="modal-header">
+    <button class="close" data-dismiss="modal">x</button>
+    <h4>Choose the type of question</h4>
+  </div>
+  <div class="modal-body">
+    <%= render 'new_question' %>
+  </div>
+</div>

@@ -1,0 +1,105 @@
+  <h2>Edit Profile</h2>
+
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+    <%= devise_error_messages! %>
+  <div class='user-ui'>
+    <div class='attributes'>
+      <div class='labels'>
+        <%= f.label :first_name %>
+      </div>
+      <div class='input-elements'>
+        <%= f.text_field :first_name %>
+      </div>
+    </div>
+    <div class='attributes'>
+      <div class='labels'>
+        <%= f.label :last_name %>
+      </div>
+      <div class='input-elements'>
+        <%= f.text_field :last_name %>
+      </div>
+    </div>
+    <div class='attributes'>
+      <div class='labels'>
+        <%= f.label :email %>
+      </div>
+      <div class='input-elements'>
+        <%= f.email_field :email, :autofocus => true %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+      </div>
+    </div>
+    <div class='attributes'>
+      <div class='labels'>
+        <%= f.label :password %>
+        <span class='hint'><i>(leave blank if you don't want to change it)</i></span>
+      </div>
+      <div class='input-elements'>
+      <%= f.password_field :password, :autocomplete => "off" %>
+      </div>
+    </div>
+    <div class='attributes'>
+      <div class='labels'>
+        <%= f.label :password_confirmation %>
+      </div>
+      <div class='input-elements'>
+        <%= f.password_field :password_confirmation %>
+      </div>
+    </div>
+    <div class='attributes'>
+      <div class='labels'>
+        <%= f.label :contact_number, 'Mobile Number' %>
+      </div>
+      <div class='input-elements'>
+        <%= f.text_field :contact_number %>
+      </div>
+    </div>
+    <div class='attributes'>
+      <div class='labels'>
+        <%= f.label :enrollment_number, 'University Roll Number' %>
+      </div>
+      <div class='input-elements'>
+        <%= f.text_field :enrollment_number %>
+      </div>
+    </div>
+    <div class='attributes'>
+      <div class='labels'>
+        <%= f.label :college_name %>
+      </div>
+      <div class='input-elements'>
+        <%= f.text_field :college_name %>
+      </div>
+    </div>
+    <div class='attributes'>
+      <div class='labels'>
+        <%= f.label :engineering_branch %>
+      </div>
+      <div class='input-elements'>
+        <%= f.select :engineering_branch, ENGINEERING_BRANCHES, prompt: 'Please Select', required: true %>
+      </div>
+    </div>
+    <div class='attributes'>
+      <div class='labels'>
+        <%= f.label :current_password %>
+        <span class='hint'>
+          <i>(we need your current password to confirm your changes)</i>
+        </span>
+      </div>
+      <div class='input-elements'>
+        <%= f.password_field :current_password, required: true %>
+      </div>
+    </div>
+    <div class='attributes'>
+      <div class='labels'>
+      </div>
+      <div class='input-elements'>
+        <%= f.submit "Update" %>
+        <br><br>
+        Unhappy? <%= link_to "Delete my account!", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, class: 'inline-element' %>
+      </div>
+    </div>
+
+  </div>
+  <% end %>
+<%= link_to "Back", user_path %>

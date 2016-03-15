@@ -1,0 +1,37 @@
+<div class='panel'>
+  <div class='attributes'>
+    <div class='labels'>Quiz: </div><div class='input-elements'><%= @quiz.name %></div>
+  </div>
+  <div class='attributes'>
+    <div class='labels'>User: </div><div class='input-elements'> <%= @user.name %></div>
+  </div>
+  <div class='attributes'>
+    <div class='labels'>Score: </div><div class='input-elements'> <%= @user.current_quiz(@quiz).score %>/<%= @quiz.marks %></div>
+  </div>
+  <div class='attributes'>
+    <div class='labels'>Finished At: </div><div class='input-elements'> <%= @user.current_quiz(@quiz).updated_at.to_s(:quiz_date) %></div>
+  </div>
+</div>
+<br>
+<div class='panel'>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Question</th>
+        <th>User Answer</th>
+        <th>Correct/Incorrect</th>
+        <th>Correct Answer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @responses.each do |response| %>
+        <tr class="<%= highlight(response) %>">
+          <td><%= link_to strip_tags(response.question.content).truncate(QUESTION[:content_truncation_length]), admin_question_path(response.question) %></td>
+          <td><%= strip_tags(response.answer_value) %></td>
+          <td><%= correct_or_incorrect(response) %></td>
+          <td><%= strip_tags(response.question.answers[0].value) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

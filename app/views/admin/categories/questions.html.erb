@@ -1,0 +1,13 @@
+<% if questions(@category).empty? %>
+  <p>No Question Available</p>
+<% else %>
+  <div class='pagination-header'>
+    <%= pagination_header(questions(@category)) %>
+  </div>
+  <div class='pagination-container'>
+    <%= paginate(questions(@category)) %>
+  </div>
+  <% questions(@category).each do |question| %>
+    <%= render partial: 'admin/questions/show', locals: { question: question } %>
+  <% end %>
+<% end %>

@@ -1,0 +1,16 @@
+<tr>
+  <td>
+    Options
+  </td>
+  <td>
+    <%= render partial: 'admin/questions/list', locals: { items: @question.options } %>
+  </td>
+</tr>
+<tr>
+  <td>
+    Answer(s)
+  </td>
+  <td>
+    <%= render partial: 'admin/questions/list', locals: { items: @question.answers } %>
+  </td>
+<tr>

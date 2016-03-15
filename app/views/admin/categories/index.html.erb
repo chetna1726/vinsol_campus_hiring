@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h1>CATEGORIES</h1>
+</div>
+<%= link_to 'New', new_admin_category_path, class: 'btn btn-primary pull-right' %>
+<% if @categories.empty? %>
+ <p>No Categories</p>
+<% else %>
+  <div class='pagination-header'>
+    <%= pagination_header(@categories) %>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Parent Category</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <td><%= link_to category.name, questions_admin_category_path(category) %></td>
+          <td> 
+            <%= parent_category(category) %></td>
+          <td>
+            <%= link_to 'Edit', edit_admin_category_path(category), class: 'btn btn-mini' %>
+            <%= link_to 'Delete', admin_category_path(category), method: :delete, class: 'btn btn-mini' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class='pagination-container'>
+    <%= paginate @categories %>
+  </div>
+<% end %>
+

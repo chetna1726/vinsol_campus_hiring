@@ -1,0 +1,10 @@
+<div class='panel' data-timer="<%= @assigned_quiz.time %>">
+  <div class='question-header'>
+    <%= raw(question.content) %>
+  </div>
+  <div>
+    <%= image_for(question) %>
+  </div>
+  <%= render partial: "#{ question.type.downcase }", locals: { question: @current_question, shuffle_options_flag: @quiz.shuffle_options } %>
+</div>
+<%= link_to link_name(@remaining), 'javascript:;', id: 'next_question', data: { href: next_question_url }, class: 'pull-right' %>

@@ -1,0 +1,39 @@
+<% if @quizzes.empty? %>
+  <p>No Quizzes</p>
+<% else %>
+  <div class='pagination-header'>
+    <%= pagination_header(@quizzes) %>
+  </div>
+  <div class='pagination-container'>
+    <%= paginate @quizzes %>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Start Date Time</th>
+        <th>End Date Time</th>
+        <th>Duration (min)</th>
+        <th>Quiz Link</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @quizzes.each do |quiz| %>
+        <tr>
+          <td><%= quiz.name %></td>
+          <% #FIXME_AB: Should be quiz.start_time quiz.end_time -%>
+          <td><%= quiz.start_date_time.to_s(:quiz_date) %></td>
+          <td><%= quiz.end_date_time.to_s(:quiz_date) %></td>
+          <td><%= quiz.duration_in_minutes %></td>
+          <td><%= link_to quiz_url(quiz.code), quiz_url(quiz.code) %></td>
+          <td>
+            <%= link_to 'Edit', edit_admin_quiz_path(quiz), class: 'btn btn-mini' %><br>
+            <%= link_to 'Show', admin_quiz_path(quiz), class: 'btn btn-mini' %><br>
+            <%= link_to 'Delete', admin_quiz_path(quiz), method: :delete, class: 'btn btn-mini' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

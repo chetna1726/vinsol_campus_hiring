@@ -1,0 +1,10 @@
+<div id='results-container', data-href="<%= show_results_admin_quiz_path(@quiz) %>">
+  <h1><%= @quiz.name %></h1>
+  <%= select_tag('sort by', options_for_select(['Name', 'Score']), prompt: 'Sort By' ) %>
+  <%= select_tag('sort order', options_for_select([["Ascending",'asc'], ['Descending', 'desc']]), prompt: 'Choose Sort Order' ) %>
+  <div id='results'>
+    <%= render 'results' %>
+  </div>
+  <%= link_to 'Export in CSV', export_results_to_csv_admin_quiz_path(@quiz), method: :post, class: 'btn inline-element' %>
+  <%= link_to "Email Me The Results", email_results_admin_quiz_path(@quiz), class: 'btn inline-element' %>
+</div>

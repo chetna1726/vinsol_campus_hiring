@@ -1,0 +1,18 @@
+<div>
+  <h1><%= controller.action_name.upcase %> DIFFICULTY LEVEL</h1>
+  <%= (render partial: '/errors', locals: { object: @difficulty_level }) if @difficulty_level.errors.any? %><br>
+  <%= form_for [:admin, difficulty_level] do |f| %>
+  <div class='attributes'>
+    <div class='labels'>
+      <%= f.label :name, class: 'inline-element' %><span class='required-field'>*</span>
+    </div>
+    <div class='input-elements'>
+      <%= f.text_field :name, required: true, autofocus: true %>
+    </div>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+  <% end %>
+  <%= link_to "Back", manage_difficulty_levels_path %>
+</div>

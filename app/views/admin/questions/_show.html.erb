@@ -1,0 +1,21 @@
+<div class='index-question-container'>
+  <%= link_to('delete', admin_question_path(question), method: 'delete', class: 'btn btn-mini pull-right' ) %>
+  <%= link_to('edit', edit_admin_question_path(question), class: 'btn btn-mini pull-right' ) %>
+  <%= link_to('show', admin_question_path(question), class: 'btn btn-mini pull-right' ) %>
+  <pre>Category: <%= question.category_parent_name %> --> <%= question.category_name %>, Difficulty: <%= question.difficulty_level_name %>, Success Rate: <%= question.hit_ratio || "not applicable" %></pre>
+  <div class='question-header'>
+    Question: <%= raw(question.content) %>
+  </div>
+  <div>
+    <%= image_for(question, :medium) %>
+  </div>
+  <div>
+    <%= render_options(question) %>
+  </div>
+  <div class='panel'>
+    <div class='panel-body'>
+      Answer(s):
+      <%= raw(question.answers.map(&:value).join(', ')) %>
+    </div>
+  </div>
+</div>
