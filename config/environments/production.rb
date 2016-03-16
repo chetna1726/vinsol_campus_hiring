@@ -78,15 +78,16 @@ VinsolCampusHiringApp::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
   config.action_mailer.default_url_options = { :host => 'online-quiz.domain4now.com' }
+  config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    domain: ENV['GMAIL_DOMAIN'],
-    user_name: ENV['GMAIL_USER_NAME'],
-    password: ENV['GMAIL_PASSWORD'],
-    authentication: 'plain',
-    enable_starttls_auto: true
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :enable_starttls_auto => true,
+    :user_name => "postmaster@sandboxd7e1bfc76b6045489afe25d17c6e087d.mailgun.org",
+    :password => "18235854cc582d8c95c8ca26cbdd96b0",
+    :authentication => 'login',
+    :domain => 'domain4now.com'
   }
 end
